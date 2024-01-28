@@ -1,5 +1,5 @@
 # Essential Commands 20%:
-* Basic Git Operations
+* [Basic Git Operations](https://github.com/DorBitton/LFCS/blob/main/Subjects/Essential%20Commands.md#basic-git-operations)
 * Create, configure, and troubleshoot services
 * Monitor and troubleshoot system performance and services
 * Determine application and service specific constraints
