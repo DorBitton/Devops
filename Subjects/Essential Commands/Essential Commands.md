@@ -4,7 +4,7 @@
 * Monitor and troubleshoot system performance and services
 * Determine application and service specific constraints
 * Troubleshoot diskspace issues
-* Work with SSL certificates
+* [Work with SSL certificates](https://github.com/DorBitton/LFCS/blob/main/Subjects/Essential%20Commands/Essential%20Commands.md#work-with-ssl-certificates)
 
 
 ## Basic Git Operations
