@@ -6,6 +6,21 @@
 * Troubleshoot diskspace issues
 * Work with SSL certificates
 
+## Read and Use System Documentation
+* `command --help`: Show help for a command.
+
+* `man command` command: Display the command manual.
+    * `man -k keyword`: Search the manual for the provided keyword.
+    * `sudo mandb`: Create a database used by the man -k command.
+    * `man -f printf`: Show man sections for the command, similar to whatis.
+
+
+* `/usr/share/doc`: Contains configuration file examples.
+* `info command`: Display info documentation.
+
+* Bash Completion
+    * During the digitalization of a command, press the Tab key twice to show possible values or parameters.
+    * `yum -y install bash-completion`: Must be installed for Bash completion.
 
 ## Basic Git Operations
 
@@ -675,27 +690,6 @@ Relative mode:
 References:
 
 * [https://en.wikipedia.org/wiki/File_system_permissions#Changing_permission_behavior_with_setuid,_setgid,_and_sticky_bits](https://en.wikipedia.org/wiki/File_system_permissions#Changing_permission_behavior_with_setuid,_setgid,_and_sticky_bits)
-
-
-## Read, and use system documentation
-
-* `commad --help` - Show help of a command.
-
-* `man command` - Show command manual.
-
-  * `man -k keyword` - Search a manual for provided keywork.
-
-     * `sudo mandb` Create database used by `man -k` command.
-
-  * `man -f printf` - Show man sections for the command. Doing the same as whatis.
-
-* `/usr/share/doc` - It contains configuration files examples.
-
-* `info command` - It shows info document.
-
-* Bash completion
-  * During the digitalization of a command can be used the pressed two time Tab key to show possible value or parameter.
-  * `yum -y install bash-completion` - must be installed.
 
 
 ## Manage access to the root account
