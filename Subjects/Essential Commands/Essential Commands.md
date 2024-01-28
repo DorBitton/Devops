@@ -77,3 +77,38 @@ This is not credentials, it's just to inform who is commiting actions.
 ### Cloning a Repository
 * Clone a repository using its connection string:
     * `git clone "connection string"`
+
+## Work with SSL certificates
+
+* SSL certificates play a crucial role in authenticating websites and encrypting network traffic between users and the website. OpenSSL, a versatile open-source tool, allows us to perform various tasks related to SSL certificates, with a primary focus on the creation of X.509 certificates.
+
+### OpenSSL Basics
+* To explore all available OpenSSL commands, use the following:
+    * `openssl`
+* For detailed information about each OpenSSL subcommand, utilize the man command:
+    * `man openssl-subcommand`
+
+
+### Key Commands
+* Two main OpenSSL commands are commonly used for SSL certificate management:
+
+1. Creating a Private Key and Generating a Certificate Request
+    * To create a private key and generate a certificate request, use the following req command:
+        * `openssl req -newkey rsa:2018 -keyout key.pem -out req.pem`
+2. Generating a Self-Signed Root Certificate
+    * Generate a self-signed root certificate with the following command:
+        * `openssl req -x509 -newkey rsa:2048 -days 365 -keyout key.pem -out req.pem`
+            * Self-signed certificates are suitable for internal use within a company to authenticate internal sites.
+
+### Certificate Decoding
+* If you need to decode a certificate, use the following x509 command:
+    * `openssl x509 -in nameOfFile.txt -text`
+
+### Tips and Best Practices
+* Command Reference:
+    * When working with certificate requests, use the req command.
+    * For decoding certificates, use the x509 command.
+* Usage Scenario:
+    * Self-signed certificates are practical for internal use within a company to authenticate internal sites.
+
+* SSL certificate management is a critical aspect of web security. Understanding how to create certificate requests, generate self-signed certificates, and decode certificates provides essential skills for maintaining a secure online environment. Familiarize yourself with the commands mentioned above to enhance your SSL certificate management capabilities.
