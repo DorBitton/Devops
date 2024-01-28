@@ -34,6 +34,7 @@ This is not credentials, it's just to inform who is commiting actions.
         `git status`
     * Add changes to the staging area:
         `git add .` will add all changed files to the staging area
+        
         `git add "*.html` will add all html changed files to the staging area
     * Unstage a specific file if needed:
         `git reset filename`
