@@ -7,6 +7,39 @@
 * Work with SSL certificates
 
 
+## Basic Git Operations
+
+* Install git: `sudo apt install git`
+* set username + email: `git config --global user.name "username"` + `git config --global user.email "useremail@email.com`. This is not credentials, it's just to inform who is commiting actions.
+* Initialize git repository in a folder: `git init`
+* Staging and Commiting Changes: 
+    1) Making changes in the working area.
+    2) Adding the changes we want to track with Git to the staging area.
+    3) Commiting our changes.
+* Staging: `git status` Returns what files have been changed -> `git add .` \ `git add "*.html` will add all \ all html changed files to the staging area. `git reset filename` will un stage the following file
+* Commiting: `git commit -m "add comment here"`
+
+
+* Git Branches: The Master branch is usually the stable version we are currently working with, we will usually merge different branches into the Master. Master is the default branch.
+* `git branch "name"` Will create a new branch. 
+* `git branch --delete "name"` Will delete that branch. 
+* `git branch --list` Shows all branches.
+* `git checkout "branch name"` Will switch to that working branch.
+
+* `git log` Shows us all changes. `git log --raw` Shows all changes with more details. A = added, D = deleted, M = modified.
+* `git show "hashnumber"` Show what changed in a specific commit.
+
+* Merging: `git merge "branch name"` Will merge the branch name into our working branch.
+
+* Remote repositorys: `git remote -v` Will show us all connected repositorys.
+* `git remote add origin "connection string"` Sets up a remote repository connection. "Origin" is an alias to the connection string.
+* Configure SSH keys to allow us to login: `ssh-keygen` saved in ~/.ssh.id_rsa.pub and in github page we can add the key in the settings tab. 
+
+* Pusing: `git push origin master`, "Origin" Alias to our repository. "Master" the branch to push into.
+* Pulling: `git pull origin master`.
+
+* Clone repository: `git clone "connection string"`
+
 ## Log into local & remote graphical and text mode consoles
 
 Basic concept to know:
