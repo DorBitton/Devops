@@ -27,33 +27,56 @@ This is not credentials, it's just to inform who is commiting actions.
 * Initialize a new Git repository in a folder:
     `git init`
 
-* Staging and Commiting Changes: 
-    1) Making changes in the working area.
-    2) Adding the changes we want to track with Git to the staging area.
-    3) Commiting our changes.
-* Staging: `git status` Returns what files have been changed -> `git add .` \ `git add "*.html` will add all \ all html changed files to the staging area. `git reset filename` will un stage the following file
-* Commiting: `git commit -m "add comment here"`
+### Staging and Commiting Changes: 
+1) Making changes in the working area.
+2) Adding the changes we want to track with Git to the staging area.
+    * Check the status of changed files:
+        `git status`
+    * Add changes to the staging area:
+        `git add .` will add all changed files to the staging area
+        `git add "*.html` will add all html changed files to the staging area
+    * Unstage a specific file if needed:
+        `git reset filename`
+
+3) Commiting our changes.
+    * Commit your changes with a descriptive message:
+        `git commit -m "Add a concise commit message here"`
 
 
-* Git Branches: The Master branch is usually the stable version we are currently working with, we will usually merge different branches into the Master. Master is the default branch.
-* `git branch "name"` Create a new branch.
-* `git branch --delete "name"` Delete a branch.
-* `git branch --list` Shows all branches.
-* `git checkout "branch name"` Switch to a branch.
+### Git Branches
+* The Master branch is usually the stable version we are currently working with, we will usually merge different branches into the Master. Master is the default branch.
+     `git branch "name"` Create a new branch.
+     `git branch --delete "name"` Delete a branch.
+     `git branch --list` Shows all branches.
+     `git checkout "branch name"` Switch to a branch.
 
-* `git log` Shows us all changes. `git log --raw` Shows all changes with more details. A = added, D = deleted, M = modified.
-* `git show "hashnumber"` Show what changed in a specific commit.
+### Viewing Changes
+* View commit history:
+    `git log`
+    `git log --raw` Shows all changes with more details. A = added, D = deleted, M = modified.
+    `git show "hashnumber"` Show what changed in a specific commit.
 
-* Merging: `git merge "branch name"` Will merge the branch name into our working branch.
+### Merging Changes
+* Merge a branch into the working branch:
+    `git merge "branch name"`
 
-* Remote repositorys: `git remote -v` Will show us all connected repositorys.
-* `git remote add origin "connection string"` Sets up a remote repository connection. "Origin" is an alias to the connection string.
-* Configure SSH keys to allow us to login: `ssh-keygen` saved in ~/.ssh.id_rsa.pub and in github page we can add the key in the settings tab. 
+### Remote Repositories
+* Show connected repositories:
+    `git remote -v`
+* Set up a remote repository connection:
+   `git remote add origin "connection string"` "Origin" is an alias to the connection string.
+* Configure SSH keys for login:
+    `ssh-keygen` saved in ~/.ssh.id_rsa.pub and in github page we can add the key in the settings tab. 
 
-* Pusing: `git push origin master`, "Origin" Alias to our repository. "Master" the branch to push into.
-* Pulling: `git pull origin master`.
+### Pushing and Pulling
+* Push changes to the remote repository:
+    `git push origin master`, "Origin" Alias to our repository. "Master" the branch to push into.
+* Pull changes from the remote repository:
+     `git pull origin master`.
 
-* Clone repository: `git clone "connection string"`
+### Cloning a Repository
+* Clone a repository using its connection string:
+    `git clone "connection string"`
 
 
 
