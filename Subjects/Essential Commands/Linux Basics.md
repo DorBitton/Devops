@@ -91,50 +91,34 @@ There are operator to redirect input, ouput and error.
 
 ## Create and manage hard and soft links
 
-![inode](http://www.farhadsaberi.com/linux_freebsd/image/unix_file_system.gif)
+In a Unix-style file system, the inode (index node) is a crucial data structure that describes file-system objects like files or directories. Each inode stores attributes, such as metadata (last change, access, modification times), owner information, and disk block location(s) of the object's data.
 
-The i-node (index node) is a data structure in a Unix-style file system that describes a file-system object such as a file or a directory. Each i-node stores the attributes and disk block location(s) of the object's data.
+Directories are essentially lists of names assigned to inodes, with each directory containing entries for itself, its parent, and its children. Inodes are identified by unique inode numbers.
 
-File-system object attributes may include metadata (times of last change, access, modification), as well as owner and permission data.
+To summarize: A directory contains filenames associated with inodes, which, in turn, contain references to data blocks.
 
-Directories are lists of names assigned to i-nodes. A directory contains an entry for itself, its parent, and each of its children.
+### Hard Links
+* A filename is a hard link to an inode.
+* Multiple filenames can point to the same inode.
+* Hard link limitations:
+    * Must point to the same device.
+    * Hard links pointing to directories cannot be created.
 
-Each i-nodes is identified by a unique i-node numbers.
+### Symbolic Links
+* A symbolic link is a pointer to a filename.
+* The chain is: link -> filename -> inode.
+* If the filename is removed, the link becomes invalid.
+* Note: Permissions on a link are "open" as the real permissions are associated with the inode.
 
-*To summarize*: directory contains filenames, that is associated to i-node, that contains reference to data block.
+* Commands for Link Management
+  * `ls -li` - Displays the inode number in the first column.
+  * `ln target newname` - Creates a hard link named `newname` pointing to the same inode as `target`.
+  * `ln -s target newlink` - Creates a symbolic link named `newlink` pointing to `target`.
+    * Example: `ln -s /var .` - Creates a symbolic link to `var` in the current directory named `var`.
 
-*Hard link*
-
-* The filenames is an hard link.
-
-* I can have two filenames that point to same i-node.
-
-* Hardlink limits:
-  * Must point to same device
-  * Hardlinks pointing a directory cannot be created
-
-*Symbolic link*
-
-* It's a pointer to a filename
-* This means that there will by this chain: link -> filename -> i-node
-  * If filename is removed, link will become invalid
-
-* Note: permissions on a link are "open", because real permission are associate to i-node.
-
-* `ls -li` - in first column show the i-node number.
-* `ln target newname` - It will create and hard link to the same i-node of target with name (filename) newname.
-* `ln -s target newlink` - It will create a symbolic link to target called newlink.
-  * `ln -s /var .` - It will create a symbolic link to var in current directory. The name of link will be var.
-
-**Note**: A file is considered deleted when there are no hard link to file's i-node. This means that `rm` remove link, hard or symbolic.
-
-References:
-
-* [https://en.wikipedia.org/wiki/Inode](https://en.wikipedia.org/wiki/Inode)
-
-* [http://www.farhadsaberi.com/linux_freebsd/2010/12/files-directory-security-setuid-sticky-bit-permissions.html](http://www.farhadsaberi.com/linux_freebsd/2010/12/files-directory-security-setuid-sticky-bit-permissions.html)
-
-* [http://www.compsci.hunter.cuny.edu/~sweiss/course_materials/unix_lecture_notes/chapter_03.pdf](http://www.compsci.hunter.cuny.edu/~sweiss/course_materials/unix_lecture_notes/chapter_03.pdf)
+* File Deletion and Inodes:
+  * A file is considered deleted when there are no hard links to the file's inode.
+  * The `rm` command removes a link, be it a hard or symbolic link.
 
 
 ## Archive, backup, compress, unpack, and uncompress files
