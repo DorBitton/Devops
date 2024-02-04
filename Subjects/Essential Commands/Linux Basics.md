@@ -28,35 +28,26 @@ an active terminal within a Unix-based operating system is typically treated as 
 There are operator to redirect input, ouput and error.
 
 * < - redirect stdin
-
-  * `wc < file`
-
-    Execute wc using the content of file as input
+  * `wc < file` - Execute wc using the content of file as input
 
 * \> and >> - redirect stdout 
-
   * `echo test > file1` - Writes "test" to file1, replacing its current content.
-
   * `echo test >> file1` - Appends "test" to file1.
 
 * 2> - redirect stderr 
-
   * `find /proc -name "cpu*" 2> /dev/null` - Finds files/directories in /proc starting with "cpu" and redirects all errors, such as 'Permission Denied', to the virtual file /dev/null (discards all data).
 
 * | - Pipe (stdout to stdin)
-
   * `cat file | wc` - Uses the output of cat file as input for the wc command.
 
 * `2>&1` - Redirect stderr to the same location as stdout
 
 * Combining Redirections: 
-
   *  `find /etc -name '\*a\*' 2> /dev/null | less` - Finds files in /etc with 'a' in their name, redirects errors to /dev/null, and pipes the output to the less command.
 
 * `/dev/null` - In Unix-like operating systems, `/dev/null` is a special device file that discards all data written to it. It's often used as a sink for unwanted output or errors.
   * `find /directory -name "file" 2> /dev/null ` -  redirects standard error (stderr - file descriptor 2) to /dev/null.
   
-
 ## Managing Files and Directories in Linux
 
 * Listing Files and Directories
@@ -90,7 +81,7 @@ There are operator to redirect input, ouput and error.
   * `rmdir dir` - remove dir. Note: dir must be empty.
   * `tree` - show directories tree.
     * `yum -y install tree` -  Install the `tree` command if not available.
-    
+
 * File and Directory Manipulation
   * `mv file file2` - rename file in file2.
     * `mv file dir` - move file in directory dir.
