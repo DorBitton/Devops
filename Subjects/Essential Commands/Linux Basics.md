@@ -20,12 +20,11 @@
 
 ## Use input-output redirection (e.g. >, >>, |, 2>)
 
-All Unix-based operating systems provide at least three different input and output channels - called *stdin*, *stdout* and *stderr* respectively - that allow communication between a program and the environment in which it is run.
+All Unix-based operating systems provide three primary input and output channels, known as stdin, stdout, and stderr. These channels facilitate communication between a program and its environment. In Bash, each channel is numbered from 0 to 2, representing stdin (0), stdout (1), and stderr (2). These channels are file descriptors, referring to specific files that can be manipulated, copied, read, or written.
 
-In Bash each of these channels is numbered from 0 to 2, and takes the name of *file descriptor*, because it refers to a particular file: as it happens with any other file stored in the system, you can manipulate it, copy it, read it or write it on its.
+Upon starting a Bash environment, the default descriptors point to the terminal where the session originated. Initially, stdin corresponds to user input, and both stdout for regular messages and stderr for error messages are directed to the terminal.
 
-When a Bash environment is started, all three default descriptor files point to the terminal where the session was initialized: the input (stdin - 0) corresponds to what is typed in the terminal, and both outputs - stdout ( 1) for traditional messages and stderr (2) for error messages - they are sent to the terminal. In fact, an open terminal in a Unix-based operating system is usually itself a file, commonly stored in /dev/tty0; when a new session is opened in parallel with an existing one, the new terminal will be /dev/tty1 and so on. Therefore, initially the three file descriptor all point to the file representing the terminal in which they are executed.
-
+an active terminal within a Unix-based operating system is typically treated as a file, commonly stored in /dev/tty0. When a new session runs concurrently with an existing one, the subsequent terminal is assigned as /dev/tty1 and so forth. Consequently, initially, all three file descriptors point to the file symbolizing the terminal in which they are executed.
 There are operator to redirect input, ouput and error.
 
 * < - redirect stdin
@@ -36,82 +35,73 @@ There are operator to redirect input, ouput and error.
 
 * \> and >> - redirect stdout 
 
-  * `echo test > file1` - Write test in a file1. The content of file1 will be replaced
+  * `echo test > file1` - Writes "test" to file1, replacing its current content.
 
-  * `echo test >> file1` - Append test in file1
+  * `echo test >> file1` - Appends "test" to file1.
 
 * 2> - redirect stderr 
 
-  * `find /proc -name "cpu*" 2> /dev/null` - Find in /proc file/directory that begin with cpu and redirect all errors, like 'Permission Denied' to special file /dev/null (virtual file that discard all data)
+  * `find /proc -name "cpu*" 2> /dev/null` - Finds files/directories in /proc starting with "cpu" and redirects all errors, such as 'Permission Denied', to the virtual file /dev/null (discards all data).
 
-* | - the stdout is transformed in stdin
+* | - Pipe (stdout to stdin)
 
-  * `cat file | wc` - Use the output of 'cat file' as input of wc
+  * `cat file | wc` - Uses the output of cat file as input for the wc command.
 
-* 2>&1 - redirect stderr  to same place of stdout 
+* `2>&1` - Redirect stderr to the same location as stdout
 
-* All redirections can be combined
+* Combining Redirections: 
 
-  *  `find /etc -name '\*a\*' 2> /dev/null | less`
+  *  `find /etc -name '\*a\*' 2> /dev/null | less` - Finds files in /etc with 'a' in their name, redirects errors to /dev/null, and pipes the output to the less command.
 
+* `/dev/null` - In Unix-like operating systems, `/dev/null` is a special device file that discards all data written to it. It's often used as a sink for unwanted output or errors.
+  * `find /directory -name "file" 2> /dev/null ` -  redirects standard error (stderr - file descriptor 2) to /dev/null.
   
 
-## Create, delete, copy, and move files and directories
+## Managing Files and Directories in Linux
 
-You must be able to check results of activities.
+* Listing Files and Directories
+  * `ls` - List directory contents.
+    * `ls -l` - Display detailed information with additional columns: File Type, Permissions, Links, Owner, Group, Size, Creation Date, Creation Hour, and Name.
+      First letter of first column indicate file type:
+      * `-` : file
+      * `d`: directory
+      * `l`: link
+    * `ls -la` - Show long output including hidden files.
+    * `ls -lR` - Display long output recursively, showing subdirectories' content.
+    * `ls -lt` - long output sorted by modification time.
+    * `ls -ld /etc` - Show directory properties without displaying its content.
 
-* `ls` - list directory content
+* Checking Disk Usage
+  * `du file` - show disk usage.
+    * `du directory` - show space used by directory and each subdirectory. It is recursive.
+    * `du -s directory` - summarize space used by directory and subdirectory.
+    * `du *` - show space of each file in current directory.
+  * `pwd` - print current directory.
 
-  * `ls -l` - long output. It will print more columns .
-
-    File Type+Permissions - Number of links - Owner - Group - Size - Creation date - Creation hour - Name
-
-    First letter of first column indicate file type:
-
-    * `-` : file
-    * `d`: directory
-    * `l`: link
-
-  * `ls -la` - long output plus hidden files.
-
-  * `ls -lR` - long output recursive (show subdirectories content).
-
-  * `ls -lt` - long output sorted by modification time.
-
-  * `ls -ld /etc` - show the directory properties and not its content.
-
-* `du file` - show disk usage.
-  * `du directory` - show space used by directory and each subdirectory. It is recursive.
-  * `du -s directory` - summarize space used by directory and subdirectory.
-  * `du *` - show space of each file in current directory.
-* `pwd` - print current directory.
-
-- `touch file` - It creates an empty file.
-
-* `cp source destination` - copy source file to destination.
-
-  * `cp file1 file2 ./dest` - Copy file2 and file2 to directory dest.
-
-  * `cp * ./dest` - Copy all file of current directory to directory dest.
-
-  * `cp -r dir1 dir2` - Copy dir1 in dir2. `-r` recursive.
-
-  * `cp -a source destionation` - Will copy the file preserving it's permissions.
-
-* `mkdir dir` - create directory dir.
-
-  * `mkdir -p dir/dir2` - Create a directory dir with a subdirecotory dir2.
-
-* `rmdir dir` - remove dir. Note: dir must be empty.
-* `tree` - show directories tree.
-  * `yum -y install tree` - to install tree.
-
-* `mv file file2` - rename file in file2.
-  * `mv file dir` - move file in directory dir.
-  * `mv dir ..` - move directory dir at the upper directory level.
-* `rm file` - delete file.
-  * `rm -f file` - remove read-only file.
-  * `rm -r dir` - remove directory dir and all subdirectories and files.
+* File and Directory Creation
+  * `touch file` - It creates an empty file.
+  * `cp source destination` - copy source file to destination.
+    * `cp file1 file2 ./dest` - Copy file2 and file2 to directory dest.
+    * `cp * ./dest` - Copy all file of current directory to directory dest.
+    * `cp -r dir1 dir2` - Copy dir1 in dir2. `-r` recursive.
+    * `cp -a source destionation` - Will copy the file preserving it's permissions.
+  * `mkdir dir` - create directory dir.
+    * `mkdir -p dir/dir2` - Create a directory dir with a subdirecotory dir2.
+  * `rmdir dir` - remove dir. Note: dir must be empty.
+  * `tree` - show directories tree.
+    * `yum -y install tree` -  Install the `tree` command if not available.
+    
+* File and Directory Manipulation
+  * `mv file file2` - rename file in file2.
+    * `mv file dir` - move file in directory dir.
+    * `mv dir ..` - move directory dir at the upper directory level.
+  * `rm file` - delete file.
+    * `rm -f file` - remove read-only file.
+    * `rm -r dir` - remove directory dir and all subdirectories and files.
+  
+* Additional Tips
+    * pwd - Print the current directory.
+    * Be cautious while using `rm -r` to avoid unintentional deletion of important files or directories.
 
 
 ## Create and manage hard and soft links
