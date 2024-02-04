@@ -121,13 +121,30 @@ To summarize: A directory contains filenames associated with inodes, which, in t
   * The `rm` command removes a link, be it a hard or symbolic link.
 
 
-## Archive, backup, compress, unpack, and uncompress files
+## Archive, Backup, Compress, Unpack, and Uncompress Files
 
-* `tar` - Save many files into a single file.
+### Archiving with tar
+* Archiving involves consolidating multiple files into a single file for efficient storage or transfer.
+* Archive multiple files into one file `backup.tar` -> Compress to store big amount of data in a relative smaller file `backup.tar.gz` -> Backup information
 
-  `tar` uses `gzip`, `bzip2` and `xz` compression. `Gzip` is fast and more common, but it generally compresses a bit less. `Bzip2` is slower, but it compresses a bit more. `XZ` is the newest.
+* To display the content of an archive file:
+  * `tar tf file.tar`
+  * The display command reveals file paths, either relative or full, providing insights into the unpacking location.
+
+* Compression and Decompression:
+  * `tar` uses `gzip`, `bzip2` and `xz` compression. `Gzip` is fast and more common, but it generally compresses a bit less. `Bzip2` is slower, but it compresses a bit more. `XZ` is the newest.
+
+  `tar --extract --file archive.tar --directory /tmp/ ` = `tar xf archive.tar -C /tmp/` - extract to `/tmp/` folder
+
+  * `tar cf archive.tar file1` \ `tar --create --file archive.tar file1` - Create `archive.tar` with the file file1.
+
+  * `tar rf archive.tar file2` \ `tar --append --file archive.tar file2` - append `file2` into `archive.tar`
+
+
 
   File permissions are maintained by default only for file users. For other user I must explicit say to maintain permission during decompression using `-p` parameter
+
+  Compress and Decompress files: 
 
   * `tar jcfv file.tar.bz2 *` - Save all files of current directory in new bzip2 compressed file called file.tar.bz2
 
@@ -137,7 +154,6 @@ To summarize: A directory contains filenames associated with inodes, which, in t
 
   * `tar czvf file.tar.gz *` - Create gzip file.
 
-  * `tar tf file.tar` - Show content of file.tar.
 
   * `tar --delete -f test.tar file` - Delete file from test.tar. **Note**: test.tar isn't compressed.
 
