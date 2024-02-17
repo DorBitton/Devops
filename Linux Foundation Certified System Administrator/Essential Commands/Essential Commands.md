@@ -1,10 +1,10 @@
 # Essential Commands 20%:
-* [Basic Git Operations](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/LFCS/Essential%20Commands.md#basic-git-operations)
+* [Basic Git Operations](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Linux%20Foundation%20Certified%20System%20Administrator/Essential%20Commands/Essential%20Commands.md#basic-git-operations)
 * Create, configure, and troubleshoot services
 * Monitor and troubleshoot system performance and services
 * Determine application and service specific constraints
 * Troubleshoot diskspace issues
-* [Work with SSL certificates](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/LFCS/Essential%20Commands/Essential%20Commands.md#work-with-ssl-certificates)
+* [Work with SSL certificates](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Linux%20Foundation%20Certified%20System%20Administrator/Essential%20Commands/Essential%20Commands.md#work-with-ssl-certificates)
 
 
 ## Basic Git Operations
