@@ -36,5 +36,16 @@
 * Docker Container Logs:
     * `docker logs name`
 
+## Docker Images
+
+* Docker Build:
+    * `docker build Dockerfile -t repo/name`
+* Docker push:
+    `docker push repo/name` Publish my built docker image
 
 ![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/How%20to%20create%20my%20own%20image.PNG)
+
+![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/DockerFile.PNG)
+
+![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/LayeredArchitecture.PNG)
+
