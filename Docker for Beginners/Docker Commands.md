@@ -35,3 +35,6 @@
     * `docker inspect name`
 * Docker Container Logs:
     * `docker logs name`
+
+
+https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/How%20to%20create%20my%20own%20image.PNG
