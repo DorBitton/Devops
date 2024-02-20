@@ -36,6 +36,14 @@
 * Docker Container Logs:
     * `docker logs name`
 
+## Environment Variables
+
+* We can set an Environment Variable as the following in the docker image:
+    * `var = os.environ.get("Var")` Example: `color = os.environ.get('APP_COLOR')`
+        * We can now state the Environment Variable in the Docker Run command: `docker run -e APP_COLOR=blue simple-webapp-color`
+    * Inspect Environment Variable: `docker inspect blissful_hopper`
+
+
 ## Docker Images
 
 * Docker Build:
@@ -48,4 +56,3 @@
 ![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/DockerFile.PNG)
 
 ![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/LayeredArchitecture.PNG)
-
