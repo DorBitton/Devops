@@ -35,6 +35,10 @@
     * `docker inspect name`
 * Docker Container Logs:
     * `docker logs name`
+* Docker Build:
+    * `docker build Dockerfile -t repo/name`
+    * Docker push:
+        * `docker push repo/name` Publish my built docker image
 
 ## Environment Variables
 
@@ -91,12 +95,9 @@
 | -p 8080:80/tcp -p 8080:80/udp	| Map TCP port 8080 on the Docker host to TCP port 80 in the container, and map UDP port 8080 on the Docker host to UDP port 80 in the container. |
 
 
-## Docker Images
+* [Docker Networking](https://docs.docker.com/network/)
 
-* Docker Build:
-    * `docker build Dockerfile -t repo/name`
-* Docker push:
-    * `docker push repo/name` Publish my built docker image
+## Docker Images
 
 ![alt text](https://github.com/DorBitton/certified-kubernetes-administrator/blob/main/Docker%20for%20Beginners/Images/How%20to%20create%20my%20own%20image.PNG)
 
