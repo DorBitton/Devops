@@ -43,6 +43,18 @@
         * We can now state the Environment Variable in the Docker Run command: `docker run -e APP_COLOR=blue simple-webapp-color`
     * Inspect Environment Variable: `docker inspect blissful_hopper`
 
+## Docker Storage
+    
+* We can create a shared folder on the Host machine that will use as persistent storage inside the container:
+    * `docker volume create data_volume` Will create a shared folder in: `/var/lib/docker/volumes/data_volume`
+    * We can also create or use the shared folder in the run command: 
+        * `docker run -v data_volume:/var/lib/mysql mysql`
+    * If we provide a complete path we can also use a folder no in the docker location:
+        * `docker run -v /data/mysql:/var/lib/mysql mysql` This will use the folder `/data/mysql` as the storage for the container.
+    
+    * The preffered way to set up storage:
+        * `docker run \ --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql`
+
 
 ## Docker Images
 
