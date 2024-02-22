@@ -55,6 +55,28 @@
     * The preffered way to set up storage:
         * `docker run \ --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql`
 
+## Docker Networking
+
+* Containers have networking enabled by default, and they can make outgoing connections. A container has no information about what kind of network it's attached to, or whether their peers are also Docker workloads or not. A container only sees a network interface with an IP address, a gateway, a routing table, DNS services, and other networking details. That is, unless the container uses the none network driver.
+
+* You can create custom, user-defined networks, and connect multiple containers to the same network. Once connected to a user-defined network, containers can communicate with each other using container IP addresses or container names.
+
+* The following example creates a network using the bridge network driver and running a container in the created network:
+    * `docker network create -d bridge my-net`
+    * `docker run --network=my-net -itd --name=container3 busybox`
+
+* Drivers
+    * The following network drivers are available by default, and provide core networking functionality:
+
+| Driver    | Description                                                              |
+| --------  | --------                                                                 |
+| bridge	| The default network driver.                                              |
+| host	    | Remove network isolation between the container and the Docker host.      |
+| none  	| Completely isolate a container from the host and other containers.       |
+| overlay   | Overlay networks connect multiple Docker daemons together.               |
+| ipvlan	| IPvlan networks provide full control over both IPv4 and IPv6 addressing. |
+| macvlan	| Assign a MAC address to a container.                                     |
+
 
 ## Docker Images
 
