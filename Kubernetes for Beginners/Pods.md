@@ -10,7 +10,6 @@
     * Pod Networking: Each Pod is assigned a unique IP address within the Kubernetes cluster, allowing containers within the Pod to communicate with each other and with other Pods in the cluster.
     * Pod Volumes: Volumes are used to provide persistent storage to Pods, ensuring data survives container restarts or Pod migrations across nodes.
 
-##### Certified Kubernetes Administrator
 * Regarding the Certified Kubernetes Administrator (CKA) certification, understanding Pods and their management is a crucial topic. The CKA exam tests your knowledge and skills in deploying, managing, and troubleshooting Kubernetes clusters and applications, including Pods.
 
 * Some relevant areas related to Pods in the CKA certification include:
