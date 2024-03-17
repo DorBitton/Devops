@@ -24,6 +24,7 @@
     * Implementing security and isolation mechanisms for Pods
     * Having a solid understanding of Pods, their role in Kubernetes, and their management is essential for successfully passing the CKA certification exam and becoming a proficient Kubernetes administrator.
 
+## Pods Basic Commands
 
 * kubectl get pods: This command lists all the pods in the current namespace. If you want to list pods from all namespaces, use --all-namespaces flag.
     * `kubectl get pods`
