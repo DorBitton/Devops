@@ -23,3 +23,31 @@
     * Understanding Pod scheduling, resource allocation, and node affinity
     * Implementing security and isolation mechanisms for Pods
     * Having a solid understanding of Pods, their role in Kubernetes, and their management is essential for successfully passing the CKA certification exam and becoming a proficient Kubernetes administrator.
+
+
+* kubectl get pods: This command lists all the pods in the current namespace. If you want to list pods from all namespaces, use --all-namespaces flag.
+    * `kubectl get pods`
+    * `kubectl get pods --all-namespaces`
+
+* kubectl describe pod [pod_name]: This command provides detailed information about a specific pod, including its status, events, and allocated resources.
+    * `kubectl describe pod my-pod`
+
+* kubectl logs [pod_name]: This command retrieves the logs for a specific pod. You can use the -f or --follow flag to stream the logs continuously.
+    * `kubectl logs my-pod`
+    * `kubectl logs my-pod -f`
+
+* kubectl exec [pod_name] -- [command]: This command executes a command inside a running container of the specified pod. It's useful for debugging or inspecting the container's environment.
+    * `kubectl exec my-pod -- ls /`
+    * `kubectl exec my-pod -- env`
+
+*kubectl port-forward [pod_name] [local_port]:[remote_port]: This command forwards a local port to a port on the pod, allowing you to access services running inside the pod from your local machine.
+    * `kubectl port-forward my-pod 8080:80`
+
+* kubectl delete pod [pod_name]: This command deletes a specific pod from the cluster. If the pod is part of a ReplicaSet or Deployment, a new pod will be automatically created to maintain the desired replica count.
+    * `kubectl delete pod my-pod`
+
+* kubectl label pods [pod_name] [key]=[value]: This command adds or updates a label on one or more pods.
+    * `kubectl label pods my-pod app=frontend`
+
+* kubectl get pods --selector=[key]=[value]: This command lists pods that match the specified label selector.
+    * `kubectl get pods --selector=app=frontend`
