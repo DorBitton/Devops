@@ -12,4 +12,4 @@
 * View Configuration
     * `ansible-config list` Lists all configuration
     * `ansible-config view` Shows the current config file
-    * `ansible-config dump` Shows the current settings
+    * `ansible-config dump` Shows the current settings 
